@@ -5,7 +5,7 @@
 
     <parent>
         <artifactId>clientes</artifactId>
-        <groupId>supuesto.aagonzalez</groupId>
+        <groupId>supuesto.aagonzalez.clientes</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
