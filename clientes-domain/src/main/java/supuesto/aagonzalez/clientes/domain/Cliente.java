@@ -1,19 +1,19 @@
 package supuesto.aagonzalez.clientes.domain;
 
 import lombok.Data;
-import org.springframework.lang.NonNull;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 public class Cliente {
 
-    @NonNull
-    private Long idCliente;
+    private Long id;
 
     private String nombre;
 
-    private String nif;
+    private LocalDateTime fechaAlta;
 
-    private String direccion;
+    private List<Representante> representantes;
 
-    private String pais;
 }

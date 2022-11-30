@@ -1,26 +1,27 @@
 package supuesto.aagonzalez.clientes.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import supuesto.aagonzalez.clientes.repositories.ClienteEntity;
-import supuesto.aagonzalez.clientes.services.ClienteServiceImpl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import supuesto.aagonzalez.clientes.domain.Cliente;
+import supuesto.aagonzalez.clientes.domain.service.ClienteService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/clientes")
 public class ClienteController {
+
+    private ClienteService clienteService;
+
     @Autowired
-    ClienteServiceImpl clienteService;
-/*
-    @GetMapping()
-    public List<ClienteEntity> getAllCliente(){
-        return clienteService.getAllClientes();
+    public ClienteController(ClienteService clienteService) {
+        this.clienteService = clienteService;
     }
 
-    @PostMapping()
-    public ClienteEntity addNewCliente(@RequestBody ClienteEntity cliente){
-        return this.clienteService.addNewCliente(cliente);
-    }*/
+    @GetMapping(produces = "application/json", path = "/clientes")
+    public List<Cliente> obtener() {
+        return clienteService.obtenerTodosLosClientes();
+    }
+
 }
