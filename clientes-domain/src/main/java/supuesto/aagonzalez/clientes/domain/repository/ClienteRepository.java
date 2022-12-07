@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface ClienteRepository {
 
-    List<Cliente> buscarClientes();
+  List<Cliente> buscarClientes();
 
 }

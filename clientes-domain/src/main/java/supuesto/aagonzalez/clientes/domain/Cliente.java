@@ -1,18 +1,20 @@
 package supuesto.aagonzalez.clientes.domain;
 
 import lombok.Data;
-
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
 public class Cliente {
 
-    private Long id;
+    private Long idCliente;
 
     private String nombre;
 
-    private LocalDateTime fechaAlta;
+    private String nif;
+
+    private String direccion;
+
+    private String pais;
 
     private List<Representante> representantes;
 

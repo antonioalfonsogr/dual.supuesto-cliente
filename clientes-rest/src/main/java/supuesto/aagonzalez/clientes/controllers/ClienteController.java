@@ -2,8 +2,7 @@ package supuesto.aagonzalez.clientes.controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import supuesto.aagonzalez.clientes.domain.Cliente;
 import supuesto.aagonzalez.clientes.domain.service.ClienteService;
 
@@ -19,9 +18,18 @@ public class ClienteController {
         this.clienteService = clienteService;
     }
 
-    @GetMapping(produces = "application/json", path = "/clientes")
-    public List<Cliente> obtener() {
+    @GetMapping(value = "/")
+    public String holaMundo(){
+        return "Hola Mundo, Esta es la API del supuesto practico dual.";
+    }
+
+    @GetMapping(value = "/clientes")
+    public List<Cliente> obtenerClientes() {
         return clienteService.obtenerTodosLosClientes();
     }
 
+    @PostMapping()
+    public Cliente insertarCliente(@RequestBody Cliente cliente){
+        return this.clienteService.insertarCliente(cliente);
+    }
 }

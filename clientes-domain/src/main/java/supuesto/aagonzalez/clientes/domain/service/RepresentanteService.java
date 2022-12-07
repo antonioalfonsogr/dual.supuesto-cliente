@@ -7,14 +7,14 @@ import java.util.List;
 
 public interface RepresentanteService {
 
-    public void addNewRepresentante();
+     void insertarNuevoRepresentante();
 
-    public List<Cliente> getAllRepresentantes();
+    List<Cliente> obtenerTodosLosRepresentantes();
 
-    public List<Cliente> getInfoRepresentante(@PathVariable("idCliente") Long idCliente);
+    List<Cliente> obtenerInfoRepresentante(@PathVariable("idCliente") Long idCliente);
 
-    public void updateRepresentante(@PathVariable("idCliente") Long idCliente);
+    void actualizarRepresentante(@PathVariable("idCliente") Long idCliente);
 
-    public void deleteRepresentante(@PathVariable("idCliente") Long idCliente);
+    void eliminarRepresentante(@PathVariable("idCliente") Long idCliente);
 
 }

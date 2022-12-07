@@ -5,8 +5,14 @@ import lombok.Data;
 @Data
 public class Representante {
 
-    private Long id;
+    private Long idRepresentante;
 
     private String nombre;
+
+    private String telefono;
+
+    private String idioma;
+
+    private long idCliente;
 
 }

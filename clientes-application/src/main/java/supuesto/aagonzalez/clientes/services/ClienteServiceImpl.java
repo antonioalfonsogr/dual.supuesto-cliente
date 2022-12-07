@@ -18,7 +18,29 @@ public class ClienteServiceImpl implements ClienteService {
         this.clienteRepository = clienteRepository;
     }
 
+    @Override
+    public Cliente insertarCliente(Cliente cliente) {
+
+        return cliente;
+    }
+
+    @Override
     public List<Cliente> obtenerTodosLosClientes() {
         return clienteRepository.buscarClientes();
+    }
+
+    @Override
+    public List<Cliente> obtenerInfoCliente(Long idCliente) {
+        return null;
+    }
+
+    @Override
+    public void actualizarCliente(Long idCliente) {
+
+    }
+
+    @Override
+    public void eliminarCliente(Long idCliente) {
+
     }
 }
