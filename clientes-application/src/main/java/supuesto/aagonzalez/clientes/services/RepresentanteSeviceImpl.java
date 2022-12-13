@@ -12,7 +12,7 @@ public class RepresentanteSeviceImpl implements RepresentanteService {
 
     private RepresentanteRepository representanteRepository;
 
-    @Autowired
+  //  @Autowired
     public RepresentanteSeviceImpl(RepresentanteRepository representanteRepository){
         this.representanteRepository = representanteRepository;
     }

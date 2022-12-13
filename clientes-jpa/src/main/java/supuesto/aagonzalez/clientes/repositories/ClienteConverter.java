@@ -1,10 +1,12 @@
 package supuesto.aagonzalez.clientes.repositories;
 
 import org.mapstruct.*;
+import org.springframework.stereotype.Component;
 import supuesto.aagonzalez.clientes.domain.Cliente;
 
 import java.util.List;
 
+@Component
 @Mapper(componentModel = "spring")
 public interface ClienteConverter {
     @Mappings({
