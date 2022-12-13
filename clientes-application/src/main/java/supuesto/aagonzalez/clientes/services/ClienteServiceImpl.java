@@ -20,18 +20,17 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public Cliente insertarCliente(Cliente cliente) {
-
-        return cliente;
+        return this.clienteRepository.insertarCliente(cliente);
     }
 
     @Override
     public List<Cliente> obtenerTodosLosClientes() {
-        return clienteRepository.buscarClientes();
+        return this.clienteRepository.obtenerClientes();
     }
 
     @Override
-    public List<Cliente> obtenerInfoCliente(Long idCliente) {
-        return null;
+    public Cliente obtenerInfoCliente(Long idCliente) {
+        return this.clienteRepository.obtenerInfoCliente(idCliente).get();
     }
 
     @Override
@@ -41,6 +40,6 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public void eliminarCliente(Long idCliente) {
-
+        this.clienteRepository.eliminarCliente(idCliente);
     }
 }

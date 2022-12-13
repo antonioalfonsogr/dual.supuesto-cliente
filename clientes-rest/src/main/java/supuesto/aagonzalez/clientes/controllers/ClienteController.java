@@ -28,8 +28,23 @@ public class ClienteController {
         return clienteService.obtenerTodosLosClientes();
     }
 
-    @PostMapping()
+    @PostMapping(value = "/clientes")
     public Cliente insertarCliente(@RequestBody Cliente cliente){
         return this.clienteService.insertarCliente(cliente);
+    }
+
+    @GetMapping(value = "/clientes/{id}")
+    public Cliente obtenerInfoCliente(@PathVariable Long id){
+        return this.clienteService.obtenerInfoCliente(id);
+    }
+
+    @GetMapping(value = "/clientes/actualizar/{id}")
+    public void actualizarCliente(@PathVariable Long id){
+        this.clienteService.actualizarCliente(id);
+    }
+
+    @GetMapping(value = "/clientes/eliminar/{id}")
+    public void eliminarCliente(@PathVariable Long id){
+        this.clienteService.eliminarCliente(id);
     }
 }
