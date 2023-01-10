@@ -35,7 +35,7 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public void actualizarCliente(Long idCliente) {
-
+        this.clienteRepository.actualizarCliente(idCliente);
     }
 
     @Override

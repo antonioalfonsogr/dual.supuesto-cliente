@@ -38,12 +38,13 @@ public class ClienteController {
         return this.clienteService.obtenerInfoCliente(id);
     }
 
-    @GetMapping(value = "/clientes/actualizar/{id}")
-    public void actualizarCliente(@PathVariable Long id){
+    @PutMapping(value = "/clientes/{id}")
+    public void actualizarCliente(@PathVariable Long id, @RequestBody Cliente cliente){
         this.clienteService.actualizarCliente(id);
+        this.clienteService.insertarCliente(cliente);
     }
 
-    @GetMapping(value = "/clientes/eliminar/{id}")
+    @DeleteMapping(value = "/clientes/{id}")
     public void eliminarCliente(@PathVariable Long id){
         this.clienteService.eliminarCliente(id);
     }

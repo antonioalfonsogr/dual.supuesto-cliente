@@ -37,9 +37,17 @@ public class ClienteConverter {
 
     public List<Cliente> toClientes(List<ClienteEntity> all) {
         List<Cliente> clienteList= new ArrayList<>();
-
-
-
+        for (ClienteEntity c:all) {
+            clienteList.add(toCliente(c));
+        }
         return clienteList;
+    }
+
+    public List<ClienteEntity> toClientesEntities(List<Cliente> all) {
+        List<ClienteEntity> clienteEntityList= new ArrayList<>();
+        for (Cliente c:all) {
+            clienteEntityList.add(toClienteEntity(c));
+        }
+        return clienteEntityList;
     }
 }
