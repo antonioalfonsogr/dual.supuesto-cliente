@@ -1,20 +1,19 @@
 package supuesto.aagonzalez.clientes.domain.service;
 
 import org.springframework.web.bind.annotation.PathVariable;
-import supuesto.aagonzalez.clientes.domain.Cliente;
+import supuesto.aagonzalez.clientes.domain.Representante;
 
 import java.util.List;
 
 public interface RepresentanteService {
 
-     void insertarNuevoRepresentante();
+    Representante insertarRepresentante(Representante representante);
 
-    List<Cliente> obtenerTodosLosRepresentantes();
+    List<Representante> obtenerTodosLosRepresentantes();
 
-    List<Cliente> obtenerInfoRepresentante(@PathVariable("idCliente") Long idCliente);
+    Representante obtenerInfoRepresentante(@PathVariable("idRepresentante") Long idRepresentante);
 
-    void actualizarRepresentante(@PathVariable("idCliente") Long idCliente);
+    void actualizarRepresentante(@PathVariable("idRepresentante") Long idRepresentante);
 
-    void eliminarRepresentante(@PathVariable("idCliente") Long idCliente);
-
+    void eliminarRepresentante(@PathVariable("idRepresentante") Long idRepresentante);
 }

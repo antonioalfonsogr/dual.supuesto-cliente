@@ -1,44 +1,45 @@
 package supuesto.aagonzalez.clientes.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import supuesto.aagonzalez.clientes.domain.Cliente;
-import supuesto.aagonzalez.clientes.domain.repository.ClienteRepository;
+import org.springframework.stereotype.Service;
+import supuesto.aagonzalez.clientes.domain.Representante;
 import supuesto.aagonzalez.clientes.domain.repository.RepresentanteRepository;
 import supuesto.aagonzalez.clientes.domain.service.RepresentanteService;
 
 import java.util.List;
 
+@Service
 public class RepresentanteSeviceImpl implements RepresentanteService {
 
     private RepresentanteRepository representanteRepository;
 
-  //  @Autowired
-    public RepresentanteSeviceImpl(RepresentanteRepository representanteRepository){
+    @Autowired
+    public RepresentanteSeviceImpl(RepresentanteRepository representanteRepository) {
         this.representanteRepository = representanteRepository;
     }
 
     @Override
-    public void insertarNuevoRepresentante() {
-
+    public Representante insertarRepresentante(Representante representante) {
+        return this.representanteRepository.insertarRepresentate(representante);
     }
 
     @Override
-    public List<Cliente> obtenerTodosLosRepresentantes() {
-        return null;
+    public List<Representante> obtenerTodosLosRepresentantes() {
+        return this.representanteRepository.obtenerRepresentante();
     }
 
     @Override
-    public List<Cliente> obtenerInfoRepresentante(Long idCliente) {
-        return null;
+    public Representante obtenerInfoRepresentante(Long idRepresentante) {
+        return this.representanteRepository.obtenerInfoRepresentate(idRepresentante).get();
     }
 
     @Override
-    public void actualizarRepresentante(Long idCliente) {
-
+    public void actualizarRepresentante(Long idRepresentante) {
+        this.representanteRepository.actualizarRepresentante(idRepresentante);
     }
 
     @Override
-    public void eliminarRepresentante(Long idCliente) {
-
+    public void eliminarRepresentante(Long idRepresentante) {
+        this.representanteRepository.eliminarRepresentante(idRepresentante);
     }
 }

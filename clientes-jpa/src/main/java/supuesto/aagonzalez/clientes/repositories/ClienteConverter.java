@@ -1,5 +1,6 @@
 package supuesto.aagonzalez.clientes.repositories;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import supuesto.aagonzalez.clientes.domain.Cliente;
 
@@ -9,7 +10,15 @@ import java.util.List;
 @Component
 public class ClienteConverter {
 
-    public Cliente toCliente(ClienteEntity clienteEntity){
+    private RepresentanteConverter representanteConverter;
+
+    @Autowired
+    public ClienteConverter(RepresentanteConverter representanteConverter) {
+        this.representanteConverter = representanteConverter;
+    }
+
+
+    public Cliente toCliente(ClienteEntity clienteEntity) {
 
         Cliente cliente = new Cliente();
 
@@ -18,11 +27,12 @@ public class ClienteConverter {
         cliente.setNif(clienteEntity.getNif());
         cliente.setDireccion(clienteEntity.getDireccion());
         cliente.setPais(clienteEntity.getPais());
+        cliente.setRepresentantes(representanteConverter.toRepesentantes(clienteEntity.getRepresentantes()));
 
         return cliente;
-    };
+    }
 
-    public ClienteEntity toClienteEntity(Cliente cliente){
+    public ClienteEntity toClienteEntity(Cliente cliente) {
 
         ClienteEntity clienteEntity = new ClienteEntity();
 
@@ -31,21 +41,22 @@ public class ClienteConverter {
         clienteEntity.setNif(cliente.getNif());
         clienteEntity.setDireccion(cliente.getDireccion());
         clienteEntity.setPais(cliente.getPais());
+//        clienteEntity.setRepresentantes(cliente.getRepresentantes());
 
         return clienteEntity;
     }
 
     public List<Cliente> toClientes(List<ClienteEntity> all) {
-        List<Cliente> clienteList= new ArrayList<>();
-        for (ClienteEntity c:all) {
+        List<Cliente> clienteList = new ArrayList<>();
+        for (ClienteEntity c : all) {
             clienteList.add(toCliente(c));
         }
         return clienteList;
     }
 
     public List<ClienteEntity> toClientesEntities(List<Cliente> all) {
-        List<ClienteEntity> clienteEntityList= new ArrayList<>();
-        for (Cliente c:all) {
+        List<ClienteEntity> clienteEntityList = new ArrayList<>();
+        for (Cliente c : all) {
             clienteEntityList.add(toClienteEntity(c));
         }
         return clienteEntityList;

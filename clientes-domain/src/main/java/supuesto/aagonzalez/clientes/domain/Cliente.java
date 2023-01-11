@@ -1,6 +1,7 @@
 package supuesto.aagonzalez.clientes.domain;
 
 import lombok.Data;
+
 import java.util.List;
 
 @Data
@@ -19,3 +20,4 @@ public class Cliente {
     private List<Representante> representantes;
 
 }
+ 

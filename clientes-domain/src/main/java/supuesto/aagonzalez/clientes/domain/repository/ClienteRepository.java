@@ -7,10 +7,14 @@ import java.util.Optional;
 
 public interface ClienteRepository {
 
-  List<Cliente> obtenerClientes();
-  Optional<Cliente> obtenerInfoCliente(Long idCliente);
-  Cliente insertarCliente(Cliente cliente);
-  void actualizarCliente(Long idCliente);
-  void eliminarCliente(Long idCliente);
+    List<Cliente> obtenerClientes();
+
+    Optional<Cliente> obtenerInfoCliente(Long idCliente);
+
+    Cliente insertarCliente(Cliente cliente);
+
+    void actualizarCliente(Long idCliente);
+
+    void eliminarCliente(Long idCliente);
 
 }

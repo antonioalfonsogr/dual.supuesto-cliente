@@ -9,6 +9,7 @@ import supuesto.aagonzalez.clientes.domain.service.ClienteService;
 import java.util.List;
 
 @RestController
+@RequestMapping("clientes")
 public class ClienteController {
 
     private ClienteService clienteService;
@@ -18,33 +19,28 @@ public class ClienteController {
         this.clienteService = clienteService;
     }
 
-    @GetMapping(value = "/")
-    public String holaMundo(){
-        return "Hola Mundo, Esta es la API del supuesto practico dual.";
-    }
-
-    @GetMapping(value = "/clientes")
+    @GetMapping(value = "")
     public List<Cliente> obtenerClientes() {
         return clienteService.obtenerTodosLosClientes();
     }
 
-    @PostMapping(value = "/clientes")
+    @PostMapping(value = "")
     public Cliente insertarCliente(@RequestBody Cliente cliente){
         return this.clienteService.insertarCliente(cliente);
     }
 
-    @GetMapping(value = "/clientes/{id}")
+    @GetMapping(value = "/{id}")
     public Cliente obtenerInfoCliente(@PathVariable Long id){
         return this.clienteService.obtenerInfoCliente(id);
     }
 
-    @PutMapping(value = "/clientes/{id}")
+    @PutMapping(value = "/{id}")
     public void actualizarCliente(@PathVariable Long id, @RequestBody Cliente cliente){
         this.clienteService.actualizarCliente(id);
         this.clienteService.insertarCliente(cliente);
     }
 
-    @DeleteMapping(value = "/clientes/{id}")
+    @DeleteMapping(value = "/{id}")
     public void eliminarCliente(@PathVariable Long id){
         this.clienteService.eliminarCliente(id);
     }

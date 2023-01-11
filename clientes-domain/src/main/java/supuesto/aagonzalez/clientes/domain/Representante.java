@@ -13,6 +13,6 @@ public class Representante {
 
     private String idioma;
 
-    private long idCliente;
+    private Cliente cliente;
 
 }
