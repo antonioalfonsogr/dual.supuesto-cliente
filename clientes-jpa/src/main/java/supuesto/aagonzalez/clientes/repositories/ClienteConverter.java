@@ -41,7 +41,7 @@ public class ClienteConverter {
         clienteEntity.setNif(cliente.getNif());
         clienteEntity.setDireccion(cliente.getDireccion());
         clienteEntity.setPais(cliente.getPais());
-//        clienteEntity.setRepresentantes(cliente.getRepresentantes());
+        clienteEntity.setRepresentantes(representanteConverter.toRepesentantesEntities(cliente.getRepresentantes()));
 
         return clienteEntity;
     }

@@ -1,5 +1,6 @@
 package supuesto.aagonzalez.clientes.repositories;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import supuesto.aagonzalez.clientes.domain.Representante;
 
@@ -9,6 +10,15 @@ import java.util.List;
 @Component
 public class RepresentanteConverter {
 
+/*
+    private ClienteConverter clienteConverter;
+
+    @Autowired
+    public RepresentanteConverter(ClienteConverter clienteConverter) {
+        this.clienteConverter = clienteConverter;
+    }
+*/
+
     public Representante toRepresentante(RepresentanteEntity representanteEntity) {
 
         Representante representante = new Representante();
@@ -17,7 +27,7 @@ public class RepresentanteConverter {
         representante.setNombre(representanteEntity.getNombre());
         representante.setTelefono(representanteEntity.getTelefono());
         representante.setIdioma(representanteEntity.getIdioma());
-//        representante.setCliente(toCliente(representanteEntity.getCliente()));
+//        representante.setCliente(clienteConverter.toCliente(representanteEntity.getCliente()));
 
         return representante;
     }
@@ -30,7 +40,7 @@ public class RepresentanteConverter {
         representanteEntity.setNombre(representante.getNombre());
         representanteEntity.setTelefono(representante.getTelefono());
         representanteEntity.setIdioma(representante.getIdioma());
-//        representanteEntity.setCliente(toClienteEntity(representante.getCliente()));
+//        representanteEntity.setCliente(clienteConverter.toClienteEntity(representante.getCliente()));
 
         return representanteEntity;
     }
