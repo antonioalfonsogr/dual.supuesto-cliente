@@ -23,8 +23,8 @@ public class Converter {
         cliente.setPais(clienteEntity.getPais());
         if (clienteEntity.getRepresentantes() != null) {
             cliente.setRepresentantes(toRepesentantes(clienteEntity.getRepresentantes()));
-        } else{
-            cliente.setRepresentantes(new ArrayList());
+        } else {
+            cliente.setRepresentantes(new ArrayList<>());
         }
         return cliente;
     }
@@ -40,8 +40,8 @@ public class Converter {
         clienteEntity.setPais(cliente.getPais());
         if (cliente.getRepresentantes() != null) {
             clienteEntity.setRepresentantes(toRepesentantesEntities(cliente.getRepresentantes()));
-        } else{
-            clienteEntity.setRepresentantes(new ArrayList());
+        } else {
+            clienteEntity.setRepresentantes(new ArrayList<>());
         }
 
         return clienteEntity;
@@ -75,7 +75,7 @@ public class Converter {
         representante.setIdioma(representanteEntity.getIdioma());
         if (representante.getCliente() != null) {
             representante.setCliente(toCliente(representanteEntity.getCliente()));
-        } else{
+        } else {
             representanteEntity.setCliente(new ClienteEntity());
         }
 
@@ -92,7 +92,7 @@ public class Converter {
         representanteEntity.setIdioma(representante.getIdioma());
         if (representante.getCliente() != null) {
             representanteEntity.setCliente(toClienteEntity(representante.getCliente()));
-        } else{
+        } else {
             representanteEntity.setCliente(new ClienteEntity());
         }
 

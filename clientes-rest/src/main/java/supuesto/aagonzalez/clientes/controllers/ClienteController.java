@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("clientes")
 public class ClienteController {
 
-    private ClienteService clienteService;
+    private final ClienteService clienteService;
 
     @Autowired
     public ClienteController(ClienteService clienteService) {
@@ -25,22 +25,22 @@ public class ClienteController {
     }
 
     @PostMapping(value = "")
-    public Cliente insertarCliente(@RequestBody Cliente cliente){
+    public Cliente insertarCliente(@RequestBody Cliente cliente) {
         return this.clienteService.insertarCliente(cliente);
     }
 
     @GetMapping(value = "/{id}")
-    public Cliente obtenerInfoCliente(@PathVariable Long id){
+    public Cliente obtenerInfoCliente(@PathVariable Long id) {
         return this.clienteService.obtenerInfoCliente(id);
     }
 
     @PutMapping(value = "/{id}")
-    public void actualizarCliente(@PathVariable Long id, @RequestBody Cliente cliente){
+    public void actualizarCliente(@PathVariable Long id, @RequestBody Cliente cliente) {
         this.clienteService.actualizarCliente(id, cliente);
     }
 
     @DeleteMapping(value = "/{id}")
-    public void eliminarCliente(@PathVariable Long id){
+    public void eliminarCliente(@PathVariable Long id) {
         this.clienteService.eliminarCliente(id);
     }
 }

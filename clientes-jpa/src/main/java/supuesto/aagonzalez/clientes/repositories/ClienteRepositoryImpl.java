@@ -11,8 +11,8 @@ import java.util.Optional;
 @Repository
 public class ClienteRepositoryImpl implements ClienteRepository {
 
-    private ClienteCrudRepository clienteCrudRepository;
-    private Converter converter;
+    private final ClienteCrudRepository clienteCrudRepository;
+    private final Converter converter;
 
     @Autowired
     public ClienteRepositoryImpl(ClienteCrudRepository clienteCrudRepository, Converter converter) {

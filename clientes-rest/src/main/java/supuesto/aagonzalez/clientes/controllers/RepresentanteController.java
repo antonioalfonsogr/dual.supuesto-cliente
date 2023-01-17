@@ -13,8 +13,8 @@ import java.util.List;
 @RequestMapping("/clientes/{idCliente}/representantes")
 public class RepresentanteController {
 
-    private RepresentanteService representanteService;
-    private ClienteService clienteService;
+    private final RepresentanteService representanteService;
+    private final ClienteService clienteService;
 
     @Autowired
     public RepresentanteController(RepresentanteService representanteService, ClienteService clienteService) {
@@ -28,22 +28,22 @@ public class RepresentanteController {
     }
 
     @PostMapping(value = "")
-    public Representante insertarRepresentante(@PathVariable(name = "idCliente") Long idCliente, @RequestBody Representante representante){
+    public Representante insertarRepresentante(@PathVariable(name = "idCliente") Long idCliente, @RequestBody Representante representante) {
         return this.representanteService.insertarRepresentante(idCliente, representante);
     }
 
     @GetMapping(value = "/{id}")
-    public Representante obtenerInfoRepresentante(@PathVariable Long id){
-        return this.representanteService.obtenerInfoRepresentante(id);
+    public Representante obtenerInfoRepresentante(@PathVariable(name = "id") String id) {
+        return this.representanteService.obtenerInfoRepresentante(Long.valueOf(id));
     }
 
     @PutMapping(value = "/{id}")
-    public void actualizarRepesentante(@PathVariable Long id, @RequestBody Representante representante){
+    public void actualizarRepesentante(@PathVariable(name = "id") Long id, @RequestBody Representante representante) {
         this.representanteService.actualizarRepresentante(id, representante);
     }
 
     @DeleteMapping(value = "/{id}")
-    public void eliminarRepresentante(@PathVariable Long id){
+    public void eliminarRepresentante(@PathVariable(name = "id") Long id) {
         this.representanteService.eliminarRepresentante(id);
     }
 

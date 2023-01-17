@@ -17,15 +17,15 @@ public class RepresentanteEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long idRepresentante;
-    @Column(name ="nombre")
+    @Column(name = "nombre")
     private String nombre;
-    @Column(name ="telefono")
+    @Column(name = "telefono")
     private String telefono;
-    @Column(name ="idioma")
+    @Column(name = "idioma")
     private String idioma;
 
-    @ManyToOne (fetch = FetchType.LAZY, targetEntity = ClienteEntity.class)
-    @JoinColumn (nullable = false, name = "id_cliente")
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = ClienteEntity.class)
+    @JoinColumn(nullable = false, name = "id_cliente")
     private ClienteEntity cliente;
 
 

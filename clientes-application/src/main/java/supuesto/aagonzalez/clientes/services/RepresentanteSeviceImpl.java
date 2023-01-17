@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class RepresentanteSeviceImpl implements RepresentanteService {
 
-    private RepresentanteRepository representanteRepository;
+    private final RepresentanteRepository representanteRepository;
 
     @Autowired
     public RepresentanteSeviceImpl(RepresentanteRepository representanteRepository) {
