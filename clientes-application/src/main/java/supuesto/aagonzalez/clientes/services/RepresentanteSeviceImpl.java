@@ -19,13 +19,13 @@ public class RepresentanteSeviceImpl implements RepresentanteService {
     }
 
     @Override
-    public Representante insertarRepresentante(Representante representante) {
-        return this.representanteRepository.insertarRepresentate(representante);
+    public Representante insertarRepresentante(Long idCliente, Representante representante) {
+        return this.representanteRepository.insertarRepresentate(idCliente,representante);
     }
 
     @Override
-    public List<Representante> obtenerTodosLosRepresentantes() {
-        return this.representanteRepository.obtenerRepresentante();
+    public List<Representante> obtenerTodosLosRepresentantes(Long idCliente) {
+        return this.representanteRepository.obtenerRepresentante(idCliente);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class RepresentanteSeviceImpl implements RepresentanteService {
     }
 
     @Override
-    public void actualizarRepresentante(Long idRepresentante) {
+    public void actualizarRepresentante(Long idRepresentante, Representante representante) {
         this.representanteRepository.actualizarRepresentante(idRepresentante);
     }
 

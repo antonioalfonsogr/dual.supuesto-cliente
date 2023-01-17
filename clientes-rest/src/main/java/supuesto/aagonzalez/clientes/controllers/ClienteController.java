@@ -36,8 +36,7 @@ public class ClienteController {
 
     @PutMapping(value = "/{id}")
     public void actualizarCliente(@PathVariable Long id, @RequestBody Cliente cliente){
-        this.clienteService.actualizarCliente(id);
-        this.clienteService.insertarCliente(cliente);
+        this.clienteService.actualizarCliente(id, cliente);
     }
 
     @DeleteMapping(value = "/{id}")

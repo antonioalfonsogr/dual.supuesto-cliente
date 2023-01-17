@@ -7,11 +7,11 @@ import java.util.Optional;
 
 public interface RepresentanteRepository {
 
-    List<Representante> obtenerRepresentante();
+    List<Representante> obtenerRepresentante(Long idCliente);
 
     Optional<Representante> obtenerInfoRepresentate(Long idRepresentante);
 
-    Representante insertarRepresentate(Representante representante);
+    Representante insertarRepresentate(Long idCliente, Representante representante);
 
     void actualizarRepresentante(Long idRepresentate);
 

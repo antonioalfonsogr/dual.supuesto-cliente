@@ -13,7 +13,7 @@ public interface ClienteRepository {
 
     Cliente insertarCliente(Cliente cliente);
 
-    void actualizarCliente(Long idCliente);
+    void actualizarCliente(Long idCliente, Cliente cliente);
 
     void eliminarCliente(Long idCliente);
 

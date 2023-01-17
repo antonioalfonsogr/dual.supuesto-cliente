@@ -12,34 +12,36 @@ import java.util.Optional;
 public class ClienteRepositoryImpl implements ClienteRepository {
 
     private ClienteCrudRepository clienteCrudRepository;
-    private ClienteConverter clienteConverter;
+    private Converter converter;
 
     @Autowired
-    public ClienteRepositoryImpl(ClienteCrudRepository clienteCrudRepository, ClienteConverter clienteConverter) {
+    public ClienteRepositoryImpl(ClienteCrudRepository clienteCrudRepository, Converter converter) {
         this.clienteCrudRepository = clienteCrudRepository;
-        this.clienteConverter = clienteConverter;
+        this.converter = converter;
     }
 
     @Override
     public List<Cliente> obtenerClientes() {
-        return this.clienteConverter.toClientes((List<ClienteEntity>) this.clienteCrudRepository.findAll());
+        return this.converter.toClientes((List<ClienteEntity>) this.clienteCrudRepository.findAll());
     }
 
     @Override
     public Optional<Cliente> obtenerInfoCliente(Long idCliente) {
         ClienteEntity clienteEntity = this.clienteCrudRepository.findById(idCliente).orElseThrow();
-        return Optional.of(this.clienteConverter.toCliente(clienteEntity));
+        return Optional.of(this.converter.toCliente(clienteEntity));
     }
 
     @Override
     public Cliente insertarCliente(Cliente cliente) {
-        ClienteEntity clienteEntity = this.clienteConverter.toClienteEntity(cliente);
-        return this.clienteConverter.toCliente(this.clienteCrudRepository.save(clienteEntity));
+        ClienteEntity clienteEntity = this.converter.toClienteEntity(cliente);
+        return this.converter.toCliente(this.clienteCrudRepository.save(clienteEntity));
     }
 
     @Override
-    public void actualizarCliente(Long idCliente) {
-        ClienteEntity clienteEntity = this.clienteCrudRepository.findById(idCliente).orElseThrow();
+    public void actualizarCliente(Long idCliente, Cliente cliente) {
+        ClienteEntity clienteEntity = this.converter.toClienteEntity(cliente);
+        clienteEntity.setIdCliente(idCliente);
+        this.converter.toCliente(this.clienteCrudRepository.save(clienteEntity));
     }
 
     @Override

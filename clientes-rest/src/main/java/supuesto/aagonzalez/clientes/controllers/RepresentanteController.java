@@ -31,7 +31,8 @@ public class RepresentanteController {
 
     @PostMapping(value = "")
     public Representante insertarRepresentante(@RequestBody Representante representante){
-        return this.representanteService.insertarRepresentante(representante);
+     //   return this.representanteService.insertarRepresentante(representante);
+        return null;
     }
 
     @GetMapping(value = "/{id}")
@@ -41,8 +42,8 @@ public class RepresentanteController {
 
     @PutMapping(value = "/{id}")
     public void actualizarRepesentante(@PathVariable Long id, @RequestBody Representante representante){
-        this.representanteService.actualizarRepresentante(id);
-        this.representanteService.insertarRepresentante(representante);
+       // this.representanteService.actualizarRepresentante(id);
+       // this.representanteService.insertarRepresentante(representante);
     }
 
     @DeleteMapping(value = "/{id}")

@@ -12,29 +12,29 @@ import java.util.Optional;
 public class RepresentanteRepositoryImpl implements RepresentanteRepository {
 
     private RepresentanteCrudRepository representanteCrudRepository;
-    private RepresentanteConverter representanteConverter;
+    private Converter converter;
 
     @Autowired
-    public RepresentanteRepositoryImpl(RepresentanteCrudRepository representanteCrudRepository, RepresentanteConverter representanteConverter) {
+    public RepresentanteRepositoryImpl(RepresentanteCrudRepository representanteCrudRepository, Converter converter) {
         this.representanteCrudRepository = representanteCrudRepository;
-        this.representanteConverter = representanteConverter;
+        this.converter = converter;
     }
 
     @Override
-    public List<Representante> obtenerRepresentante() {
-        return this.representanteConverter.toRepesentantes((List<RepresentanteEntity>) this.representanteCrudRepository.findAll());
+    public List<Representante> obtenerRepresentante(Long idCliente) {
+        return this.converter.toRepesentantes((List<RepresentanteEntity>) this.representanteCrudRepository.findAll());
     }
 
     @Override
     public Optional<Representante> obtenerInfoRepresentate(Long idRepresentante) {
         RepresentanteEntity representanteEntity = this.representanteCrudRepository.findById(idRepresentante).orElseThrow();
-        return Optional.of(this.representanteConverter.toRepresentante(representanteEntity));
+        return Optional.of(this.converter.toRepresentante(representanteEntity));
     }
 
     @Override
-    public Representante insertarRepresentate(Representante representante) {
-        RepresentanteEntity representanteEntity = this.representanteConverter.toRepresentanteEntity(representante);
-        return this.representanteConverter.toRepresentante(this.representanteCrudRepository.save(representanteEntity));
+    public Representante insertarRepresentate(Long idCliente, Representante representante) {
+        RepresentanteEntity representanteEntity = this.converter.toRepresentanteEntity(representante);
+        return this.converter.toRepresentante(this.representanteCrudRepository.save(representanteEntity));
     }
 
     @Override

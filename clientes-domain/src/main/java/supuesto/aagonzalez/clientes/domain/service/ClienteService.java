@@ -11,9 +11,9 @@ public interface ClienteService {
 
     List<Cliente> obtenerTodosLosClientes();
 
-    Cliente obtenerInfoCliente(@PathVariable("idCliente") Long idCliente);
+    Cliente obtenerInfoCliente(Long idCliente);
 
-    void actualizarCliente(@PathVariable("idCliente") Long idCliente);
+    void actualizarCliente(Long idCliente, Cliente cliente);
 
-    void eliminarCliente(@PathVariable("idCliente") Long idCliente);
+    void eliminarCliente(Long idCliente);
 }
