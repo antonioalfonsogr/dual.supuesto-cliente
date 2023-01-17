@@ -13,7 +13,7 @@ public interface RepresentanteRepository {
 
     Representante insertarRepresentate(Long idCliente, Representante representante);
 
-    void actualizarRepresentante(Long idRepresentate);
+    void actualizarRepresentante(Long idRepresentate, Representante representante);
 
     void eliminarRepresentante(Long idRepresentante);
 

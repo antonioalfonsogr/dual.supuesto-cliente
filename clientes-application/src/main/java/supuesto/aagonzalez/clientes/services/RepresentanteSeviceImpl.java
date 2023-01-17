@@ -20,7 +20,7 @@ public class RepresentanteSeviceImpl implements RepresentanteService {
 
     @Override
     public Representante insertarRepresentante(Long idCliente, Representante representante) {
-        return this.representanteRepository.insertarRepresentate(idCliente,representante);
+        return this.representanteRepository.insertarRepresentate(idCliente, representante);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class RepresentanteSeviceImpl implements RepresentanteService {
 
     @Override
     public void actualizarRepresentante(Long idRepresentante, Representante representante) {
-        this.representanteRepository.actualizarRepresentante(idRepresentante);
+        this.representanteRepository.actualizarRepresentante(idRepresentante, representante);
     }
 
     @Override

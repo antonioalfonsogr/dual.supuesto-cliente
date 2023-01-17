@@ -2,11 +2,10 @@ package supuesto.aagonzalez.clientes.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import supuesto.aagonzalez.clientes.domain.Cliente;
 import supuesto.aagonzalez.clientes.domain.Representante;
 import supuesto.aagonzalez.clientes.domain.service.ClienteService;
 import supuesto.aagonzalez.clientes.domain.service.RepresentanteService;
-import supuesto.aagonzalez.clientes.services.ClienteServiceImpl;
+
 
 import java.util.List;
 
@@ -25,14 +24,12 @@ public class RepresentanteController {
 
     @GetMapping(value = "")
     public List<Representante> obtenerRepresentantes(@PathVariable(name = "idCliente") Long idCliente) {
-       // return representanteService.obtenerTodosLosRepresentantes();
         return clienteService.obtenerInfoCliente(idCliente).getRepresentantes();
     }
 
     @PostMapping(value = "")
-    public Representante insertarRepresentante(@RequestBody Representante representante){
-     //   return this.representanteService.insertarRepresentante(representante);
-        return null;
+    public Representante insertarRepresentante(@PathVariable(name = "idCliente") Long idCliente, @RequestBody Representante representante){
+        return this.representanteService.insertarRepresentante(idCliente, representante);
     }
 
     @GetMapping(value = "/{id}")
@@ -42,8 +39,7 @@ public class RepresentanteController {
 
     @PutMapping(value = "/{id}")
     public void actualizarRepesentante(@PathVariable Long id, @RequestBody Representante representante){
-       // this.representanteService.actualizarRepresentante(id);
-       // this.representanteService.insertarRepresentante(representante);
+        this.representanteService.actualizarRepresentante(id, representante);
     }
 
     @DeleteMapping(value = "/{id}")

@@ -13,11 +13,13 @@ public class RepresentanteRepositoryImpl implements RepresentanteRepository {
 
     private RepresentanteCrudRepository representanteCrudRepository;
     private Converter converter;
+    private ClienteCrudRepository clienteCrudRepository;
 
     @Autowired
-    public RepresentanteRepositoryImpl(RepresentanteCrudRepository representanteCrudRepository, Converter converter) {
+    public RepresentanteRepositoryImpl(RepresentanteCrudRepository representanteCrudRepository, Converter converter, ClienteCrudRepository clienteCrudRepository) {
         this.representanteCrudRepository = representanteCrudRepository;
         this.converter = converter;
+        this.clienteCrudRepository = clienteCrudRepository;
     }
 
     @Override
@@ -34,12 +36,15 @@ public class RepresentanteRepositoryImpl implements RepresentanteRepository {
     @Override
     public Representante insertarRepresentate(Long idCliente, Representante representante) {
         RepresentanteEntity representanteEntity = this.converter.toRepresentanteEntity(representante);
+        representanteEntity.setCliente(clienteCrudRepository.findById(idCliente).orElseThrow());
         return this.converter.toRepresentante(this.representanteCrudRepository.save(representanteEntity));
     }
 
     @Override
-    public void actualizarRepresentante(Long idRepresentate) {
-        RepresentanteEntity representanteEntity = this.representanteCrudRepository.findById(idRepresentate).orElseThrow();
+    public void actualizarRepresentante(Long idRepresentat, Representante representante) {
+        RepresentanteEntity representanteEntity = this.converter.toRepresentanteEntity(representante);
+        representanteEntity.setIdRepresentante(idRepresentat);
+        this.converter.toRepresentante(this.representanteCrudRepository.save(representanteEntity));
     }
 
     @Override
