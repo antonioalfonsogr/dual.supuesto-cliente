@@ -41,10 +41,12 @@ public class RepresentanteRepositoryImpl implements RepresentanteRepository {
     }
 
     @Override
-    public void actualizarRepresentante(Long idRepresentat, Representante representante) {
-        RepresentanteEntity representanteEntity = this.converter.toRepresentanteEntity(representante);
-        representanteEntity.setIdRepresentante(idRepresentat);
-        this.converter.toRepresentante(this.representanteCrudRepository.save(representanteEntity));
+    public void actualizarRepresentante(Long idRepresentante, Representante representante) {
+        RepresentanteEntity representanteEntity = this.representanteCrudRepository.findById(idRepresentante).orElseThrow();
+        representanteEntity.setNombre(representante.getNombre());
+        representanteEntity.setTelefono(representante.getTelefono());
+        representanteEntity.setIdioma(representante.getIdioma());
+        this.representanteCrudRepository.save(representanteEntity);
     }
 
     @Override

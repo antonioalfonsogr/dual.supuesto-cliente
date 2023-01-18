@@ -39,8 +39,11 @@ public class ClienteRepositoryImpl implements ClienteRepository {
 
     @Override
     public void actualizarCliente(Long idCliente, Cliente cliente) {
-        ClienteEntity clienteEntity = this.converter.toClienteEntity(cliente);
-        clienteEntity.setIdCliente(idCliente);
+        ClienteEntity clienteEntity = this.clienteCrudRepository.findById(idCliente).orElseThrow();
+        clienteEntity.setNombre(cliente.getNombre());
+        clienteEntity.setNif(cliente.getNif());
+        clienteEntity.setDireccion(cliente.getDireccion());
+        clienteEntity.setPais(cliente.getPais());
         this.converter.toCliente(this.clienteCrudRepository.save(clienteEntity));
     }
 
