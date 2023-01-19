@@ -8,9 +8,9 @@ public interface RepresentanteService {
 
     Representante insertarRepresentante(Long idCliente, Representante representante);
 
-    List<Representante> obtenerTodosLosRepresentantes(Long idCliente);
+    List<Representante> obtenerRepresentantes(Long idCliente);
 
-    Representante obtenerInfoRepresentante(Long idRepresentante);
+    Representante obtenerRepresentante(Long idRepresentante);
 
     void actualizarRepresentante(Long idRepresentante, Representante representante);
 

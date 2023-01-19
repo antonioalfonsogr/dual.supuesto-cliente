@@ -26,7 +26,7 @@ public class ClienteRepositoryImpl implements ClienteRepository {
     }
 
     @Override
-    public Optional<Cliente> obtenerInfoCliente(Long idCliente) {
+    public Optional<Cliente> obtenerCliente(Long idCliente) {
         ClienteEntity clienteEntity = this.clienteCrudRepository.findById(idCliente).orElseThrow();
         return Optional.of(this.converter.toCliente(clienteEntity));
     }

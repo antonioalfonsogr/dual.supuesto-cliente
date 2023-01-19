@@ -23,7 +23,7 @@ public class RepresentanteRepositoryImpl implements RepresentanteRepository {
     }
 
     @Override
-    public List<Representante> obtenerRepresentante(Long idCliente) {
+    public List<Representante> obtenerRepresentantes(Long idCliente) {
         return this.converter.toRepesentantes((List<RepresentanteEntity>) this.representanteCrudRepository.findAll());
     }
 

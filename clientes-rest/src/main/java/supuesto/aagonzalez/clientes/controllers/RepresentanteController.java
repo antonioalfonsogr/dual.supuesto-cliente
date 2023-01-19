@@ -24,17 +24,17 @@ public class RepresentanteController {
 
     @GetMapping(value = "")
     public List<Representante> obtenerRepresentantes(@PathVariable(name = "idCliente") Long idCliente) {
-        return clienteService.obtenerInfoCliente(idCliente).getRepresentantes();
+        return clienteService.obtenerCliente(idCliente).getRepresentantes();
     }
 
     @PostMapping(value = "")
-    public Representante insertarRepresentante(@PathVariable(name = "idCliente") Long idCliente, @RequestBody Representante representante) {
+    public Representante insertarRepresentantes(@PathVariable(name = "idCliente") Long idCliente, @RequestBody Representante representante) {
         return this.representanteService.insertarRepresentante(idCliente, representante);
     }
 
     @GetMapping(value = "/{id}")
-    public Representante obtenerInfoRepresentante(@PathVariable(name = "id") String id) {
-        return this.representanteService.obtenerInfoRepresentante(Long.valueOf(id));
+    public Representante obtenerRepresentante(@PathVariable(name = "id") String id) {
+        return this.representanteService.obtenerRepresentante(Long.valueOf(id));
     }
 
     @PutMapping(value = "/{id}")

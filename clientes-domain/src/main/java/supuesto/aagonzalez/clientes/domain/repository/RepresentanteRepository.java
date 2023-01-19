@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface RepresentanteRepository {
 
-    List<Representante> obtenerRepresentante(Long idCliente);
+    List<Representante> obtenerRepresentantes(Long idCliente);
 
     Optional<Representante> obtenerInfoRepresentate(Long idRepresentante);
 

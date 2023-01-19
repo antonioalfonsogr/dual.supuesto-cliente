@@ -8,9 +8,9 @@ public interface ClienteService {
 
     Cliente insertarCliente(Cliente cliente);
 
-    List<Cliente> obtenerTodosLosClientes();
+    List<Cliente> obtenerClientes();
 
-    Cliente obtenerInfoCliente(Long idCliente);
+    Cliente obtenerCliente(Long idCliente);
 
     void actualizarCliente(Long idCliente, Cliente cliente);
 

@@ -24,13 +24,13 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public List<Cliente> obtenerTodosLosClientes() {
+    public List<Cliente> obtenerClientes() {
         return this.clienteRepository.obtenerClientes();
     }
 
     @Override
-    public Cliente obtenerInfoCliente(Long idCliente) {
-        return this.clienteRepository.obtenerInfoCliente(idCliente).get();
+    public Cliente obtenerCliente(Long idCliente) {
+        return this.clienteRepository.obtenerCliente(idCliente).get();
     }
 
     @Override

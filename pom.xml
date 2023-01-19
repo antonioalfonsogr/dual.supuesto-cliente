@@ -16,8 +16,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>supuesto-practico-1</name>
-	<description>Supuesto practico formación dual.</description>
+	<name>supuesto-cliente</name>
+	<description>Supuesto practico formación dual. Área cliente.</description>
 
 	<properties>
 		<java.version>11</java.version>

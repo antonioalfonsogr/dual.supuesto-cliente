@@ -24,12 +24,12 @@ public class RepresentanteSeviceImpl implements RepresentanteService {
     }
 
     @Override
-    public List<Representante> obtenerTodosLosRepresentantes(Long idCliente) {
-        return this.representanteRepository.obtenerRepresentante(idCliente);
+    public List<Representante> obtenerRepresentantes(Long idCliente) {
+        return this.representanteRepository.obtenerRepresentantes(idCliente);
     }
 
     @Override
-    public Representante obtenerInfoRepresentante(Long idRepresentante) {
+    public Representante obtenerRepresentante(Long idRepresentante) {
         return this.representanteRepository.obtenerInfoRepresentate(idRepresentante).get();
     }
 

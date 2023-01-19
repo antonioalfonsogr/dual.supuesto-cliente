@@ -9,7 +9,7 @@ public interface ClienteRepository {
 
     List<Cliente> obtenerClientes();
 
-    Optional<Cliente> obtenerInfoCliente(Long idCliente);
+    Optional<Cliente> obtenerCliente(Long idCliente);
 
     Cliente insertarCliente(Cliente cliente);
 

@@ -21,7 +21,7 @@ public class ClienteController {
 
     @GetMapping(value = "")
     public List<Cliente> obtenerClientes() {
-        return clienteService.obtenerTodosLosClientes();
+        return clienteService.obtenerClientes();
     }
 
     @PostMapping(value = "")
@@ -30,8 +30,8 @@ public class ClienteController {
     }
 
     @GetMapping(value = "/{id}")
-    public Cliente obtenerInfoCliente(@PathVariable Long id) {
-        return this.clienteService.obtenerInfoCliente(id);
+    public Cliente obtenerCliente(@PathVariable Long id) {
+        return this.clienteService.obtenerCliente(id);
     }
 
     @PutMapping(value = "/{id}")
